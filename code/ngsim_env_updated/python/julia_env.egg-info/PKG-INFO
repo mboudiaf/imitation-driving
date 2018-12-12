@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: julia-env
+Version: 0.1
+Summary: Python Interface to Julia RL Environments
+Home-page: UNKNOWN
+Author: blake wulfe
+Author-email: blake.w.wulfe@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN

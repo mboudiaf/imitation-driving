@@ -1,0 +1,11 @@
+README.md
+setup.py
+julia_env/__init__.py
+julia_env/julia_env.py
+julia_env/utils.py
+julia_env.egg-info/PKG-INFO
+julia_env.egg-info/SOURCES.txt
+julia_env.egg-info/dependency_links.txt
+julia_env.egg-info/not-zip-safe
+julia_env.egg-info/requires.txt
+julia_env.egg-info/top_level.txt

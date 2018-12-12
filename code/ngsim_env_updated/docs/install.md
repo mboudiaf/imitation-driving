@@ -29,7 +29,7 @@ cd ..
 ## julia
 ```bash
 # install our own version of julia
-wget https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.2-linux-x86_64.tar.gz
+wget https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.2-linux-x86_64.tar.gz # you should install julia-0.7 at least
 tar -xf julia-0.6.2-linux-x86_64.tar.gz
 rm julia-0.6.2-linux-x86_64.tar.gz
 
@@ -49,7 +49,7 @@ git clone https://github.com/wulfebw/ngsim_env.git
 julia ngsim_env/julia/deps/build.jl
 
 # this avoids a bug
-echo "using Iterators" >> ~/.juliarc.jl
+echo "using Iterators" >> ~/.juliarc.jl  #!!! Julia config file is not .juliarc.jl anymore, it is now ~/.julia/config/startup.jl
 # avoiding a PyPlot bug
 echo "export LD_PRELOAD=${HOME}/.julia/v0.6/Conda/deps/usr/lib/libz.so" >> ~/.bashrc 
 source ~/.bashrc

@@ -1,3 +1,5 @@
+This folder contains an updated version of the Julia package NGSIM.jl whose original version you can find at : https://github.com/sisl/NGSIM.jl
+
 # NGSIM.jl
 
 A Julia package for working with the Next Generation Simulation dataset (NGSIM).

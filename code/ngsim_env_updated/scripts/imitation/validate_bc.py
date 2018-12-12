@@ -26,19 +26,14 @@ import visualize_utils
 def simulate(sess,env, policy, max_steps,use_bc=False, render=False, env_kwargs=dict()):
     traj = hgail.misc.simulation.Trajectory()
     x = env.reset(**env_kwargs)
-    #hprev = np.zeros((64,64)) #batch_size x gru_size
     for step in range(max_steps):
         if render: env.render()
         if use_bc:
-            #a = baseline._regressor.predict(x.reshape((1,-1))).flatten()
+
             feed_in={}
-            valid_features=[i for i in range(66) if (i!=15 and i!=20)]
+            valid_features=[i for i in range(66) if (i!=15 and i!=20)] #feature 15 and 20 are not used in training
             feed_in["inputs:0"]=x.reshape((1,-1))[:,valid_features]
-            #feed_in["gru_policy/mean_network/gru/h0:0"] = hprev
             a = sess.run("a_mean_mlp:0",feed_in)
-            #print("Action taken:",a.shape)
-            #print("Hidden state:",hprev.shape)
-            #a=a[0]
             a_info = dict()
         else:
             a, a_info = policy.get_action(x)
@@ -111,7 +106,7 @@ def collect_trajectories(
     env, _, _ = env_fn(args, alpha=0.)
     policy = policy_fn(args, env)
     tf.reset_default_graph()
-    imported_graph = tf.train.import_meta_graph('/home/malik_boudiaf/gail-driver/behavioral_cloning/models/bc_policy.ckpt-32.meta')
+    imported_graph = tf.train.import_meta_graph('./../../behavioral_cloning/models/bc_policy.ckpt-32.meta')
     with tf.Session() as sess:
         #if use_bc:
         #    traj_lab_dict = visualize_utils.get_trajs_dict(['NGSIM-gail'], files_to_use=[0])
@@ -123,7 +118,7 @@ def collect_trajectories(
 
         # initialize variables        
         if use_bc:
-            imported_graph.restore(sess, "/home/malik_boudiaf/gail-driver/behavioral_cloning/models/bc_policy.ckpt-32")
+            imported_graph.restore(sess, "./../../behavioral_cloning/models/bc_policy.ckpt-32")
         # then load parameters
         if use_hgail:
             for i, level in enumerate(policy):

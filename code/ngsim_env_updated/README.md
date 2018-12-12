@@ -1,4 +1,4 @@
-
+This folder is an updated version of the original ngsim_env that you can find at : https://github.com/sisl/ngsim_env
 # NGSIM Env
 - This is a rllab environment for learning human driver models with imitation learning
 - This repository does not contain a [gail](https://arxiv.org/abs/1606.03476) / [infogail](https://arxiv.org/abs/1703.08840) / hgail implementation
